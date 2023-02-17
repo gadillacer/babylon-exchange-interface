@@ -1,0 +1,1 @@
+export const UNISWAP_GRANTS_PROPOSAL_DESCRIPTION = `#####`

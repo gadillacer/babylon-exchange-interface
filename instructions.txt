@@ -1,0 +1,14 @@
+EXCHANGE=babylon.yoshitoke.testnet
+ACCOUNT=yoshitoke.testnet
+near call $EXCHANGE extend_whitelisted_tokens '{"tokens": ["v2-nearx.staderlabs.testnet", "pulse.fakes.testnet"]}' --accountId $ACCOUNT --depositYocto=1
+near call $EXCHANGE add_simple_pool '{"tokens": ["hapi.fakes.testnet", "pulse.fakes.testnet"], "fee": 25}' --accountId $ACCOUNT --amount=0.05
+near call $EXCHANGE storage_deposit '{"account_id": "yoshitoke.testnet"}' --accountId $ACCOUNT --amount=1
+near call $EXCHANGE register_tokens '{"token_ids": ["v2-nearx.staderlabs.testnet", "pulse.fakes.testnet"]}' --accountId $ACCOUNT --depositYocto=1
+near call $EXCHANGE add_liquidity '{"pool_id": 6, "amounts": ["1000000000000000000", "1000000000000000000"]}' --accountId $ACCOUNT --depositYocto=7000000000000000000000 --gas=300000000000000
+near call oct.fakes.testnet ft_transfer_call '{"receiver_id": "babylon.yoshitoke.testnet", "amount": "1000000000000000000", "msg": ""}' --accountId $ACCOUNT --depositYocto=1 --gas=300000000000000
+near call oct.fakes.testnet storage_deposit '{"registration_only": true, "account_id": "babylon.yoshitoke.testnet"}' --accountId $ACCOUNT --amount=1
+near call v2-nearx.staderlabs.testnet storage_deposit '{"registration_only": true, "account_id": "babylon.yoshitoke.testnet"}' --accountId $ACCOUNT --amount=1
+near call pulse.fakes.testnet ft_transfer_call '{"receiver_id": "babylon.yoshitoke.testnet", "amount": "1000000000000000000", "msg": ""}' --accountId $ACCOUNT --depositYocto=1 --gas=300000000000000
+near call pulse.fakes.testnet ft_transfer '{"receiver_id": "babylon.yoshitoke.testnet", "amount": "1000000000000000000000000"}' --accountId $ACCOUNT --depositYocto=1 --gas=300000000000000
+
+ 
