@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { IntlProvider } from 'react-intl';
-import en_US from '../../locales/en_US';
 import { useEffect } from 'react';
 
 export const Context = React.createContext(null);
@@ -10,7 +9,7 @@ let lang: any;
 const switchLanguage = (local: string) => {
   switch (local) {
     case 'en':
-      lang = en_US;
+      lang = 'en';
       break;
     case 'zh-CN':
       break;
@@ -27,7 +26,7 @@ const switchLanguage = (local: string) => {
     case 'es':
       break;
     default:
-      lang = en_US;
+      lang = 'en';
       break;
   }
 };
